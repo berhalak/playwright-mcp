@@ -1,17 +1,17 @@
 {
-  "name": "@playwright/mcp",
-  "version": "0.0.68",
-  "description": "Playwright Tools for MCP",
+  "name": "@berhalak/playwright-mcp",
+  "version": "0.1.0",
+  "description": "Playwright MCP server with multi-session support",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/microsoft/playwright-mcp.git"
+    "url": "git+https://github.com/berhalak/playwright-mcp.git"
   },
-  "homepage": "https://playwright.dev",
+  "homepage": "https://github.com/berhalak/playwright-mcp",
   "engines": {
     "node": ">=18"
   },
   "author": {
-    "name": "Microsoft Corporation"
+    "name": "berhalak"
   },
   "license": "Apache-2.0",
   "scripts": {
@@ -22,7 +22,7 @@
     "wtest": "playwright test --project=webkit",
     "dtest": "MCP_IN_DOCKER=1 playwright test --project=chromium-docker",
     "build": "echo OK",
-    "npm-publish": "npm run lint && npm run test && npm publish"
+    "npm-publish": "npm run lint && npm run test && npm publish --access public"
   },
   "exports": {
     "./package.json": "./package.json",
@@ -32,6 +32,7 @@
     }
   },
   "dependencies": {
+    "@modelcontextprotocol/sdk": "^1.12.1",
     "playwright": "1.59.0-alpha-1771104257000",
     "playwright-core": "1.59.0-alpha-1771104257000"
   },
