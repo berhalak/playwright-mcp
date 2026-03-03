@@ -1,4 +1,39 @@
-## Playwright MCP
+## @berhalak/playwright-mcp
+
+A fork of [@playwright/mcp](https://github.com/microsoft/playwright-mcp) that adds **multi-session browser support**. Run multiple isolated browser sessions simultaneously from a single MCP server — each session gets its own browser context, and all standard Playwright MCP tools accept a `sessionId` parameter to target specific sessions.
+
+### What's different from @playwright/mcp?
+
+- **Multi-session mode** (`--multi` flag): Spin up multiple independent browser sessions and control them in parallel. Each session is fully isolated with its own browser profile.
+- **Session management tools**: `browser_new_session`, `browser_list_sessions`, `browser_close_session` for creating, listing, and tearing down sessions.
+- **Session routing**: Every existing Playwright tool gains a `sessionId` parameter. Omit it to target the most recently created session.
+
+### Quick start
+
+```json
+{
+  "mcpServers": {
+    "playwright": {
+      "command": "npx",
+      "args": ["@berhalak/playwright-mcp@latest", "--multi"]
+    }
+  }
+}
+```
+
+### Usage
+
+1. The server starts with no active sessions.
+2. Call `browser_new_session` — returns a `sessionId`.
+3. Pass that `sessionId` to any tool (`browser_navigate`, `browser_click`, etc.) to target that session.
+4. Create additional sessions as needed — each gets its own isolated browser.
+5. Call `browser_close_session` to clean up when done.
+
+If you omit `sessionId`, the most recently created session is used automatically.
+
+---
+
+## Original Playwright MCP
 
 A Model Context Protocol (MCP) server that provides browser automation capabilities using [Playwright](https://playwright.dev). This server enables LLMs to interact with web pages through structured accessibility snapshots, bypassing the need for screenshots or visually-tuned models.
 
