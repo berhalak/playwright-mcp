@@ -1,6 +1,6 @@
 {
-  "name": "@berhalak/playwright-mcp",
-  "version": "0.1.0",
+  "name": "playwright-mcp-multi",
+  "version": "1.0.0",
   "description": "Playwright MCP server with multi-session support",
   "repository": {
     "type": "git",

@@ -1,4 +1,4 @@
-## @berhalak/playwright-mcp
+## playwright-mcp-multi
 
 A fork of [@playwright/mcp](https://github.com/microsoft/playwright-mcp) that adds **multi-session browser support**. Run multiple isolated browser sessions simultaneously from a single MCP server — each session gets its own browser context, and all standard Playwright MCP tools accept a `sessionId` parameter to target specific sessions.
 
@@ -15,7 +15,7 @@ A fork of [@playwright/mcp](https://github.com/microsoft/playwright-mcp) that ad
   "mcpServers": {
     "playwright": {
       "command": "npx",
-      "args": ["@berhalak/playwright-mcp@latest", "--multi"]
+      "args": ["playwright-mcp-multi@latest", "--multi"]
     }
   }
 }
